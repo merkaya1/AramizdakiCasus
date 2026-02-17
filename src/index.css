@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+/* ============================
+   Aramızdaki Casus - Custom Theme (Tailwind v4)
+   ============================ */
+
+@theme {
+    /* Colors */
+    --color-spy-dark: #0a0a1a;
+    --color-spy-darker: #06060f;
+    --color-spy-card: #12122a;
+    --color-spy-surface: #1a1a3e;
+    --color-spy-glass: rgba(255, 255, 255, 0.04);
+    --color-spy-glass-hover: rgba(255, 255, 255, 0.08);
+    --color-spy-border: rgba(255, 255, 255, 0.06);
+
+    --color-gold: #ffd700;
+    --color-gold-dim: #b8960f;
+    --color-gold-glow: rgba(255, 215, 0, 0.15);
+
+    --color-danger: #e63946;
+    --color-danger-dim: #a32832;
+    --color-danger-glow: rgba(230, 57, 70, 0.2);
+
+    --color-innocent: #2ecc71;
+    --color-innocent-dim: #1ea355;
+
+    /* Font Families */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Animations */
+    --animate-float: float 3s ease-in-out infinite;
+    --animate-shimmer: shimmer 3s ease-in-out infinite;
+    --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+    --animate-bounce-in: bounce-in 0.6s ease;
+    --animate-slide-up: slide-up 0.4s ease;
+    --animate-fade-in: fade-in 0.3s ease;
+    --animate-shake: shake 0.5s ease;
+}
+
+/* Keyframes */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 4px rgba(255, 215, 0, 0.15);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+@keyframes flip-card {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Base styles */
+body {
+    font-family: var(--font-body);
+    min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Card flip */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: var(--color-spy-glass);
+    border: 1px solid var(--color-spy-border);
+    backdrop-filter: blur(20px);
+}
+
+.glass-hover:hover {
+    background: var(--color-spy-glass-hover);
+}
+
+/* Gold gradient text */
+.text-gradient-gold {
+    background: linear-gradient(135deg, var(--color-gold), #fff, var(--color-gold));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Gold glow button */
+.btn-gold {
+    background: linear-gradient(135deg, var(--color-gold), #f0c030);
+    color: #1a1a2e;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.btn-gold:hover {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Danger glow */
+.glow-red {
+    box-shadow: 0 0 30px var(--color-danger-glow);
+}
+
+/* Gold glow */
+.glow-gold {
+    box-shadow: 0 0 30px var(--color-gold-glow);
+}
