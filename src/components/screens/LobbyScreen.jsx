@@ -90,8 +90,8 @@ export default function LobbyScreen() {
             {/* Player Count */}
             <div className="text-center mb-4">
                 <span className="text-sm text-gray-400">
-                    👥 {room.players.length} / 12 Oyuncu
-                    {room.players.length > 8 && (
+                    👥 {(room.players?.length || 0)} / 12 Oyuncu
+                    {(room.players?.length || 0) > 8 && (
                         <span className="text-danger ml-2 font-semibold">🕵️ 2 Casus!</span>
                     )}
                 </span>
@@ -99,7 +99,7 @@ export default function LobbyScreen() {
 
             {/* Player List */}
             <div className="w-full max-w-sm flex flex-col gap-2 mb-6">
-                {room.players.map((p, index) => (
+                {(room.players || []).map((p, index) => (
                     <div
                         key={p.id}
                         className={`flex items-center gap-3 px-4 py-3 glass rounded-xl animate-slide-up ${p.isHost ? 'border-gold/30' : ''

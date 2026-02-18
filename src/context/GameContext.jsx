@@ -71,7 +71,7 @@ function gameReducer(state, action) {
             if (roomData.status === 'lobby' && state.currentScreen !== SCREENS.LOBBY && state.currentScreen !== SCREENS.MENU) {
                 nextScreen = SCREENS.LOBBY;
             }
-            else if (roomData.status === 'role_reveal' && state.currentScreen === SCREENS.LOBBY) {
+            else if (roomData.status === 'role_reveal' && state.currentScreen !== SCREENS.ROLE_REVEAL) {
                 nextScreen = SCREENS.ROLE_REVEAL;
             }
 
@@ -152,20 +152,15 @@ export function GameProvider({ children }) {
     }, [state.room?.id]);
 
     // Atılma Kontrolü (Client-side Security Check)
+    // Sadece gerçek Firestore verisi geldiğinde çalışır (status alanı yoksa minimal payload'dır)
     useEffect(() => {
-        if (state.room && state.user && state.room.players) {
-            // Eğer players listesi boş değilse ama biz yoksak -> Atıldın.
-            if (state.room.players.length > 0) {
-                const me = state.room.players.find(p => p.id === state.user.uid);
-                if (!me) {
-                    // Sadece ID varsa (joinRoom durumu) veya players listesi boşsa (createRoom ilk hali) bu kontrolü yapma.
-                    // Burada players > 0 dedik ama host createRoom'da kendini eklemezse yine 0 olabilir.
-                    // createRoom düzeltildi, kendini ekleyecek.
-
-                    addToast("Odadan atıldınız.", "error");
-                    dispatch({ type: ACTIONS.SET_ROOM, payload: null });
-                    dispatch({ type: ACTIONS.SET_SCREEN, payload: SCREENS.MENU });
-                }
+        if (!state.room?.status || !state.user || !state.room.players) return;
+        if (state.room.players.length > 0) {
+            const me = state.room.players.find(p => p.id === state.user.uid);
+            if (!me) {
+                addToast("Odadan atıldınız.", "error");
+                dispatch({ type: ACTIONS.SET_ROOM, payload: null });
+                dispatch({ type: ACTIONS.SET_SCREEN, payload: SCREENS.MENU });
             }
         }
     }, [state.room, state.user]);
@@ -213,8 +208,18 @@ export function GameProvider({ children }) {
             localStorage.setItem('playerName', playerName);
             try {
                 const { roomId } = await joinRoom(code, playerName);
-                // Sadece ID veriyoruz, players yok -> useEffect check atlamalı
-                dispatch({ type: ACTIONS.SET_ROOM, payload: { id: roomId } });
+                const userId = getCurrentUserId();
+                // Tam initial state ver ki LobbyScreen crash etmesin
+                dispatch({
+                    type: ACTIONS.SET_ROOM,
+                    payload: {
+                        id: roomId,
+                        status: 'lobby',
+                        code: code.toUpperCase(),
+                        players: [{ id: userId, name: playerName, isHost: false, isConnected: true }],
+                        settings: {}
+                    }
+                });
                 dispatch({ type: ACTIONS.SET_SCREEN, payload: SCREENS.LOBBY });
                 addToast("Odaya Katıldınız!", "success");
             } catch (err) {

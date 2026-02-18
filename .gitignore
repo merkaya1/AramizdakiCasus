@@ -10,9 +10,8 @@ dist/
 .env.production
 .env.*.local
 
-# Firebase
+# Firebase cache
 .firebase/
-.firebaserc
 
 # IDE
 .vscode/
