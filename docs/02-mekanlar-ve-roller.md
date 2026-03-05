@@ -365,24 +365,151 @@ Her mekan şu bilgilere sahiptir:
 
 ---
 
+### 26. 🚔 Polis Karakolu
+**Açıklama:** Şehrin merkezinde kalabalık bir polis karakolu, sorgu odaları dolu.
+| # | Rol |
+|---|-----|
+| 1 | Komiser |
+| 2 | Dedektif |
+| 3 | Nöbetçi Memur |
+| 4 | Şüpheli |
+| 5 | Avukat |
+| 6 | Muhbir |
+| 7 | Adli Tıp Uzmanı |
+
+---
+
+### 27. ⚔️ Roma Gladyatör Arenası
+**Açıklama:** Antik Roma'da devasa bir arena, kalabalık zafer bekliyor.
+| # | Rol |
+|---|-----|
+| 1 | Gladyatör |
+| 2 | İmparator |
+| 3 | Senatör |
+| 4 | Antrenör |
+| 5 | Köle Tüccarı |
+| 6 | Sağlıkçı |
+| 7 | Seyirci |
+
+---
+
+### 28. 🎡 Lunapark
+**Açıklama:** Işıl ışıl bir lunapark, çığlıklar ve müzik havada karışıyor.
+| # | Rol |
+|---|-----|
+| 1 | Korkuluk Operatörü |
+| 2 | Pamuk Şeker Satıcısı |
+| 3 | Teknisyen |
+| 4 | Fotoğrafçı |
+| 5 | Güvenlik |
+| 6 | Lunapark Sahibi |
+| 7 | Ziyaretçi |
+
+---
+
+### 29. 💒 Köy Düğünü
+**Açıklama:** Şenlikli bir köy düğünü, davullar çalıyor, herkes oynuyor.
+| # | Rol |
+|---|-----|
+| 1 | Gelin |
+| 2 | Damat |
+| 3 | İmam |
+| 4 | Davulcu |
+| 5 | Düğün Sahibi |
+| 6 | Düğün Fotoğrafçısı |
+| 7 | Muhtar |
+
+---
+
+### 30. ♨️ Türk Hamamı
+**Açıklama:** Tarihi bir Türk hamamı, buhar yükseliyor, göbek taşı ısınıyor.
+| # | Rol |
+|---|-----|
+| 1 | Tellak |
+| 2 | Kasiyir |
+| 3 | Masöz |
+| 4 | Müşteri |
+| 5 | İşletme Sahibi |
+| 6 | Temizlikçi |
+| 7 | Nalıncı |
+
+---
+
+### 31. 🎮 E-Spor Turnuvası
+**Açıklama:** Dev ekranlı bir e-spor arenası, final maçı başlamak üzere.
+| # | Rol |
+|---|-----|
+| 1 | Profesyonel Oyuncu |
+| 2 | Takım Koçu |
+| 3 | Yorumcu |
+| 4 | Teknik Ekip |
+| 5 | Taraftar |
+| 6 | Turnuva Direktörü |
+| 7 | Sponsor Temsilcisi |
+
+---
+
+### 32. 🚒 İtfaiye İstasyonu
+**Açıklama:** Şehrin en kalabalık itfaiye istasyonu, alarm her an çalabilir.
+| # | Rol |
+|---|-----|
+| 1 | İtfaiye Amiri |
+| 2 | İtfaiyeci |
+| 3 | Paramedik |
+| 4 | Araç Sürücüsü |
+| 5 | Teknisyen |
+| 6 | Operatör |
+| 7 | Stajyer |
+
+---
+
+### 33. 📺 Canlı TV Stüdyosu
+**Açıklama:** Canlı yayın başlamak üzere, kamera ışıkları yanıyor.
+| # | Rol |
+|---|-----|
+| 1 | Sunucu |
+| 2 | Yönetmen |
+| 3 | Kameraman |
+| 4 | Makyajcı |
+| 5 | Ses Teknisyeni |
+| 6 | Yapımcı |
+| 7 | Stüdyo Seyircisi |
+
+---
+
+### 34. 🏛️ Müze
+**Açıklama:** Tarihi eserlerin sergilendiği büyük bir müze, gece kapandı ama içeride hareketlilik var.
+| # | Rol |
+|---|-----|
+| 1 | Küratör |
+| 2 | Güvenlik Görevlisi |
+| 3 | Rehber |
+| 4 | Sanat Hırsızı |
+| 5 | Restoratör |
+| 6 | Tarihçi |
+| 7 | Okul Gezisi Öğrencisi |
+
+---
+
+### 35. 🦁 Hayvanat Bahçesi
+**Açıklama:** Yüzlerce hayvanın yaşadığı büyük bir hayvanat bahçesi, ziyaretçiler kafeslere bakıyor.
+| # | Rol |
+|---|-----|
+| 1 | Bakıcı |
+| 2 | Veteriner |
+| 3 | Bilet Görevlisi |
+| 4 | Temizlikçi |
+| 5 | Fotoğrafçı |
+| 6 | Öğretmen |
+| 7 | Ziyaretçi |
+
+---
+
 ## 📊 Mekan İstatistikleri
 
 | Bilgi | Değer |
 |-------|-------|
-| **Toplam Mekan Sayısı** | 25 |
+| **Toplam Mekan Sayısı** | 35 |
 | **Mekan Başı Minimum Rol** | 7 |
-| **Toplam Rol Sayısı** | 175 |
-| **Kategori Çeşitliliği** | Tarih, Bilim, Eğlence, Günlük Yaşam, Fantastik |
-
----
-
-## 🔄 Gelecekte Eklenecekler (v2.0)
-
-Topluluk tarafından önerilecek mekanlar ve roller ile set genişletilebilir. Her güncelleme döngüsünde 5 yeni mekan hedeflenmektedir.
-
-**Potansiyel mekanlar:**
-- 🕹️ E-Spor Turnuvası
-- 🏗️ İnşaat Şantiyesi  
-- 🎓 Üniversite Kampüsü
-- 🧪 Kimya Fabrikası
-- 🏡 Köy Düğünü
+| **Toplam Rol Sayısı** | 245 |
+| **Kategori Çeşitliliği** | Tarih, Bilim, Eğlence, Günlük Yaşam, Fantastik, Türk Kültürü |

@@ -64,7 +64,8 @@ export default function LobbyScreen() {
     const durationOptions = [
         { label: '3 dk', value: 180 },
         { label: '5 dk', value: 300 },
-        { label: '8 dk', value: 480 },
+        { label: '10 dk', value: 600 },
+        { label: '15 dk', value: 900 },
     ];
 
     if (!room) return <div className="text-center mt-20">Oda yükleniyor...</div>;

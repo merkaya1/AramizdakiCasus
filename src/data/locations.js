@@ -174,6 +174,76 @@ const locations = [
         emoji: "🌌",
         description: "Galaksiler arası bir uzay gemisi, bilinmeyen bir gezegene doğru yol alıyor.",
         roles: ["Kaptan", "Navigatör", "Silah Subayı", "Mühendis", "Doktor", "Android", "Yabancı Tür Uzmanı"]
+    },
+    {
+        id: "police_station",
+        name: "Polis Karakolu",
+        emoji: "🚔",
+        description: "Şehrin merkezinde kalabalık bir polis karakolu, sorgu odaları dolu.",
+        roles: ["Komiser", "Dedektif", "Nöbetçi Memur", "Şüpheli", "Avukat", "Muhbir", "Adli Tıp Uzmanı"]
+    },
+    {
+        id: "gladiator_arena",
+        name: "Roma Gladyatör Arenası",
+        emoji: "⚔️",
+        description: "Antik Roma'da devasa bir arena, kalabalık zafer bekliyor.",
+        roles: ["Gladyatör", "İmparator", "Senatör", "Antrenör", "Köle Tüccarı", "Sağlıkçı", "Seyirci"]
+    },
+    {
+        id: "amusement_park",
+        name: "Lunapark",
+        emoji: "🎡",
+        description: "Işıl ışıl bir lunapark, çığlıklar ve müzik havada karışıyor.",
+        roles: ["Korkuluk Operatörü", "Pamuk Şeker Satıcısı", "Teknisyen", "Fotoğrafçı", "Güvenlik", "Lunapark Sahibi", "Ziyaretçi"]
+    },
+    {
+        id: "village_wedding",
+        name: "Köy Düğünü",
+        emoji: "💒",
+        description: "Şenlikli bir köy düğünü, davullar çalıyor, herkes oynuyor.",
+        roles: ["Gelin", "Damat", "İmam", "Davulcu", "Düğün Sahibi", "Düğün Fotoğrafçısı", "Muhtar"]
+    },
+    {
+        id: "turkish_bath",
+        name: "Türk Hamamı",
+        emoji: "♨️",
+        description: "Tarihi bir Türk hamamı, buhar yükseliyor, göbek taşı ısınıyor.",
+        roles: ["Tellak", "Kasiyir", "Masöz", "Müşteri", "İşletme Sahibi", "Temizlikçi", "Nalıncı"]
+    },
+    {
+        id: "esports_tournament",
+        name: "E-Spor Turnuvası",
+        emoji: "🎮",
+        description: "Dev ekranlı bir e-spor arenası, final maçı başlamak üzere.",
+        roles: ["Profesyonel Oyuncu", "Takım Koçu", "Yorumcu", "Teknik Ekip", "Taraftar", "Turnuva Direktörü", "Sponsor Temsilcisi"]
+    },
+    {
+        id: "fire_station",
+        name: "İtfaiye İstasyonu",
+        emoji: "🚒",
+        description: "Şehrin en kalabalık itfaiye istasyonu, alarm her an çalabilir.",
+        roles: ["İtfaiye Amiri", "İtfaiyeci", "Paramedik", "Araç Sürücüsü", "Teknisyen", "Operatör", "Stajyer"]
+    },
+    {
+        id: "tv_studio",
+        name: "Canlı TV Stüdyosu",
+        emoji: "📺",
+        description: "Canlı yayın başlamak üzere, kamera ışıkları yanıyor.",
+        roles: ["Sunucu", "Yönetmen", "Kameraman", "Makyajcı", "Ses Teknisyeni", "Yapımcı", "Stüdyo Seyircisi"]
+    },
+    {
+        id: "museum",
+        name: "Müze",
+        emoji: "🏛️",
+        description: "Tarihi eserlerin sergilendiği büyük bir müze, gece kapandı ama içeride hareketlilik var.",
+        roles: ["Küratör", "Güvenlik Görevlisi", "Rehber", "Sanat Hırsızı", "Restoratör", "Tarihçi", "Okul Gezisi Öğrencisi"]
+    },
+    {
+        id: "zoo",
+        name: "Hayvanat Bahçesi",
+        emoji: "🦁",
+        description: "Yüzlerce hayvanın yaşadığı büyük bir hayvanat bahçesi, ziyaretçiler kafeslere bakıyor.",
+        roles: ["Bakıcı", "Veteriner", "Bilet Görevlisi", "Temizlikçi", "Fotoğrafçı", "Öğretmen", "Ziyaretçi"]
     }
 ];
 
