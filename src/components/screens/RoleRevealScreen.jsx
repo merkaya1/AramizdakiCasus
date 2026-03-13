@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useGame } from '../../context/GameContext';
+import { getInitials, getAvatarColor } from '../../utils/helpers';
 
 export default function RoleRevealScreen() {
     const { state, seeRole } = useGame();
@@ -8,9 +9,7 @@ export default function RoleRevealScreen() {
     const [canProceed, setCanProceed] = useState(false);
 
     useEffect(() => {
-        // 1 saniye sonra kartı çevir
         const flipTimer = setTimeout(() => setIsFlipped(true), 1000);
-        // 4 saniye sonra "Gördüm" butonunu aktif et
         const proceedTimer = setTimeout(() => setCanProceed(true), 4000);
         return () => {
             clearTimeout(flipTimer);
@@ -24,6 +23,10 @@ export default function RoleRevealScreen() {
 
     const location = room.currentLocation;
     const isSpy = player.isSpy;
+    const hasSeen = player.hasSeenRole;
+
+    const seenCount = (room.players || []).filter(p => p.hasSeenRole).length;
+    const totalCount = (room.players || []).length;
 
     return (
         <div className="w-full min-h-dvh flex flex-col items-center justify-center px-4 py-8 animate-fade-in">
@@ -49,7 +52,6 @@ export default function RoleRevealScreen() {
                             }`}
                     >
                         {isSpy ? (
-                            /* Spy Card */
                             <>
                                 <span className="text-6xl animate-bounce-in">🕵️</span>
                                 <h2 className="text-danger font-heading font-black text-2xl drop-shadow-[0_0_20px_rgba(230,57,70,0.5)]">
@@ -65,7 +67,6 @@ export default function RoleRevealScreen() {
                                 </div>
                             </>
                         ) : (
-                            /* Innocent Card */
                             <>
                                 <span className="text-5xl animate-bounce-in">{location?.emoji}</span>
                                 <div>
@@ -89,11 +90,39 @@ export default function RoleRevealScreen() {
             {/* Gördüm Button */}
             <button
                 onClick={handleSeen}
-                disabled={!canProceed}
-                className="btn-gold px-10 py-4 rounded-xl font-heading font-bold text-lg transition-all active:scale-[0.97] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                disabled={!canProceed || hasSeen}
+                className="btn-gold px-10 py-4 rounded-xl font-heading font-bold text-lg transition-all active:scale-[0.97] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer mb-6"
             >
-                {canProceed ? '✅ Gördüm, Devam Et' : '⏳ Kartını oku...'}
+                {!canProceed ? '⏳ Kartını oku...' : hasSeen ? '✅ Gördüm' : '✅ Gördüm, Devam Et'}
             </button>
+
+            {/* Bekleme Durumu */}
+            {hasSeen && (
+                <div className="w-full max-w-sm animate-fade-in">
+                    <p className="text-center text-gray-500 text-xs mb-3">
+                        {seenCount}/{totalCount} oyuncu kartını gördü
+                    </p>
+                    <div className="flex flex-col gap-2">
+                        {(room.players || []).map((p, index) => (
+                            <div
+                                key={p.id}
+                                className="flex items-center gap-3 px-3 py-2 glass rounded-xl"
+                            >
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0 ${getAvatarColor(index)}`}>
+                                    {getInitials(p.name)}
+                                </div>
+                                <span className="flex-1 text-sm truncate text-gray-300">
+                                    {p.name} {p.id === player.id && '(Sen)'}
+                                </span>
+                                {p.hasSeenRole
+                                    ? <span className="text-innocent text-sm">✓</span>
+                                    : <span className="text-gray-600 text-xs">bekliyor...</span>
+                                }
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
